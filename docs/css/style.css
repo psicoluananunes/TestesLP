@@ -48,3 +48,8 @@ details[open] .plus{transform:rotate(45deg)}
 @media (max-width:520px){
   .header-cta{display:none}
 }
+
+/* Com uma coluna só, o título das Dúvidas fixo passaria por cima das perguntas */
+@media (max-width:800px){
+  .faq-title{position:static !important}
+}
