@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Terapia online após fim ou crise de relacionamento | Luana Nunes, psicóloga</title>
+<meta name="description" content="Terapia online em TCC para quem precisa decidir o que fazer com uma relação longa ou reconstruir a vida depois dela. Luana Nunes, psicóloga clínica, CRP 06/193435.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Instrument Sans',system-ui,sans-serif;color:#121011;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:#5B1A24}a:hover{color:#420F18}
+summary{list-style:none}summary::-webkit-details-marker{display:none}
+details[open] .plus{transform:rotate(45deg)}
+.track{scrollbar-width:thin;scrollbar-color:#E4D6D8 transparent}
+</style>
+</helmet>
+
+<div aria-hidden="true" style="height:72px"></div>
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #EEE8E8">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="#inicio" data-target="inicio" onClick="{{ go }}" style="text-decoration:none;color:#121011;display:flex;flex-direction:column;line-height:1;flex-shrink:0">
+      <span style="font-size:20px;font-weight:600;letter-spacing:-.03em">Luana Nunes<span style="color:#5B1A24">.</span></span>
+      <span style="font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#6A6063;margin-top:6px">Psicóloga clínica · CRP 06/193435</span>
+    </a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Seções" style="display:flex;gap:2px;margin-left:auto">
+        <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
+          <a href="#{{ item.id }}" data-target="{{ item.id }}" onClick="{{ go }}" style="font-size:14px;font-weight:500;text-decoration:none;padding:8px 13px;border-radius:999px;color:{{ item.color }};background:{{ item.bg }};transition:background .2s,color .2s">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="background:#121011;color:#fff;text-decoration:none;font-size:14px;font-weight:500;padding:11px 18px;border-radius:999px;white-space:nowrap;transition:background .2s" style-hover="background:#5B1A24;color:#fff">Agendar sessão</a>
+      <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="width:44px;height:44px;border-radius:50%;border:1px solid #E6DFE0;background:#fff;cursor:pointer;display:grid;place-items:center;font-size:18px;color:#121011">{{ menuIcon }}</button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav style="border-top:1px solid #EEE8E8;background:#fff;padding:4px 24px 16px;display:flex;flex-direction:column">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
+        <a href="#{{ item.id }}" data-target="{{ item.id }}" onClick="{{ go }}" style="font-size:18px;font-weight:500;letter-spacing:-.01em;text-decoration:none;padding:14px 0;border-bottom:1px solid #F3EEEE;color:{{ item.color }}">{{ item.label }}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ showProgress }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;left:0;bottom:-1px;height:2px;background:#5B1A24;width:{{ progress }}"></div>
+  </sc-if>
+</header>
+
+<main>
+<section id="inicio" data-screen-label="01 Início" style="padding:clamp(48px,7vw,96px) 24px clamp(64px,8vw,112px)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:{{ heroCols }};grid-template-areas:{{ heroAreas }};column-gap:clamp(40px,6vw,88px);row-gap:32px;align-items:center">
+    <div style="grid-area:copy;align-self:end;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Terapia online · TCC</div>
+      <h1 style="font-size:clamp(38px,5.2vw,68px);line-height:1.02;font-weight:600;letter-spacing:-.035em;font-stretch:92%;text-wrap:balance">O relacionamento esfriou ou terminou. E, no meio disso, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em;color:#5B1A24">você deixou de se reconhecer.</span></h1>
+    </div>
+    <div style="grid-area:video">
+      <div style="position:relative">
+      <div style="position:absolute;inset:18px -18px -18px 18px;background:#5B1A24;border-radius:20px"></div>
+      <div style="position:relative;aspect-ratio:16/9;background:#121011;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(18,16,17,.18)">
+        <iframe src="https://www.youtube-nocookie.com/embed/ALw_8z-zLgE?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Apresentação de Luana Nunes, psicóloga clínica" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+      </div>
+      <p style="font-size:13px;color:#6A6063;margin-top:40px">Assista antes de agendar. O vídeo não carregou? <a href="https://youtu.be/ALw_8z-zLgE" target="_blank" rel="noopener" style="font-weight:600;text-underline-offset:3px">Abrir no YouTube</a></p>
+    </div>
+    <div style="grid-area:cta;align-self:start;display:flex;flex-direction:column;gap:28px">
+      <p style="font-size:18px;line-height:1.6;color:#4A4245;max-width:52ch;text-wrap:pretty">Terapia online em Terapia Cognitivo-Comportamental para decidir o que fazer com uma relação longa, ou reconstruir a vida depois dela. Começando pela relação com você.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="display:inline-flex;align-items:center;gap:12px;background:#5B1A24;color:#fff;text-decoration:none;font-size:16px;font-weight:600;padding:17px 28px;border-radius:999px;transition:background .2s" style-hover="background:#121011;color:#fff">Agendar minha sessão <span aria-hidden="true">→</span></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:13px;font-weight:500;color:#121011;border:1px solid #E3DCDD;border-radius:999px;padding:6px 14px">CRP 06/193435</span>
+        <span style="font-size:13px;font-weight:500;color:#121011;border:1px solid #E3DCDD;border-radius:999px;padding:6px 14px">+6 anos de atuação clínica</span>
+        <span style="font-size:13px;font-weight:500;color:#121011;border:1px solid #E3DCDD;border-radius:999px;padding:6px 14px">Sessões pelo Google Meet</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="para-voce" data-screen-label="02 Para você" style="background:#5B1A24;color:#fff;padding:clamp(64px,9vw,120px) 24px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,7vw,96px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#F1DDE0"><span style="width:28px;height:1px;background:#F1DDE0"></span>O que costuma estar por trás</div>
+      <h2 style="font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:600;letter-spacing:-.03em;font-stretch:92%;text-wrap:balance">A dúvida que parece ser sobre o outro. <span style="font-family: &quot;Instrument Serif&quot;, serif; font-style: italic; font-weight: 400; letter-spacing: 0px;">Começa em você.</span></h2>
+      <p style="font-size:17px;color:#F4E6E8;max-width:54ch;text-wrap:pretty">Depois de anos ao lado de alguém, a rotina, os planos e até a forma de se enxergar se organizam em torno da relação. Quando ela esfria ou termina, o que se desfaz não é só o casal.</p>
+      <p style="margin-top:14px;padding-top:24px;border-top:1px solid rgba(255,255,255,.28);font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(26px,2.6vw,34px);line-height:1.2;max-width:26ch">“Antes de decidir sobre a relação, é preciso saber quem você é hoje.”</p>
+    </div>
+    <ol style="list-style:none;display:flex;flex-direction:column">
+      <li style="display:grid;grid-template-columns:64px 1fr;gap:4px 16px;padding:28px 0;border-top:1px solid rgba(255,255,255,.28)">
+        <span style="grid-row:span 2;font-size:14px;font-weight:600;letter-spacing:.08em;color:#F1DDE0;padding-top:6px">01</span>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-.02em">Ficar ou sair</h3>
+        <p style="color:#F4E6E8;font-size:16px">Você não sabe se fica por amor, hábito ou medo, e a decisão parece impossível.</p>
+      </li>
+      <li style="display:grid;grid-template-columns:64px 1fr;gap:4px 16px;padding:28px 0;border-top:1px solid rgba(255,255,255,.28)">
+        <span style="grid-row:span 2;font-size:14px;font-weight:600;letter-spacing:.08em;color:#F1DDE0;padding-top:6px">02</span>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-.02em">Recomeçar</h3>
+        <p style="color:#F4E6E8;font-size:16px">Terminou, e o que você gosta, quer e escolhe ficou misturado com a vida a dois.</p>
+      </li>
+      <li style="display:grid;grid-template-columns:64px 1fr;gap:4px 16px;padding:28px 0;border-top:1px solid rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.28)">
+        <span style="grid-row:span 2;font-size:14px;font-weight:600;letter-spacing:.08em;color:#F1DDE0;padding-top:6px">03</span>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-.02em">Se reencontrar</h3>
+        <p style="color:#F4E6E8;font-size:16px">Carreira e rotina em ordem, e a sensação de que não sobrou espaço para você.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="depoimentos" data-screen-label="03 Relatos" style="padding:clamp(64px,9vw,120px) 24px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:40px">
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:680px">
+        <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Relatos de pacientes</div>
+        <h2 style="font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:600;letter-spacing:-.03em;font-stretch:92%">Já fez terapia e saiu <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0;color:#5B1A24">sem direção?</span></h2>
+        <p style="font-size:17px;color:#4A4245;max-width:58ch;text-wrap:pretty">É comum. Sem objetivo e sem leitura do padrão, o mesmo assunto volta toda semana. Estes relatos são de quem chegou com essa dúvida.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:13px;font-weight:600;color:#fff;background:#121011;border-radius:999px;padding:7px 14px">Desabafo sem plano</span>
+          <span style="font-size:13px;font-weight:600;color:#fff;background:#121011;border-radius:999px;padding:7px 14px">Meses no mesmo assunto</span>
+          <span style="font-size:13px;font-weight:600;color:#fff;background:#121011;border-radius:999px;padding:7px 14px">Pouca devolutiva</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button type="button" data-dir="-1" onClick="{{ slide }}" aria-label="Relato anterior" style="width:52px;height:52px;border-radius:50%;border:1px solid #E3DCDD;background:#fff;color:#121011;cursor:pointer;font-size:18px;transition:all .2s" style-hover="background:#5B1A24;border-color:#5B1A24;color:#fff">←</button>
+        <button type="button" data-dir="1" onClick="{{ slide }}" aria-label="Próximo relato" style="width:52px;height:52px;border-radius:50%;border:1px solid #E3DCDD;background:#fff;color:#121011;cursor:pointer;font-size:18px;transition:all .2s" style-hover="background:#5B1A24;border-color:#5B1A24;color:#fff">→</button>
+      </div>
+    </div>
+    <div class="track" ref="{{ trackRef }}" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px">
+      <sc-for list="{{ relatos }}" as="r" hint-placeholder-count="3">
+        <button type="button" data-src="{{ r.src }}" onClick="{{ openLb }}" aria-label="Ampliar {{ r.alt }}" style="flex:0 0 min(520px,84vw);scroll-snap-align:start;align-self:flex-start;background:#FAF7F7;border:1px solid #EEE8E8;border-radius:16px;padding:12px;cursor:zoom-in;transition:border-color .2s" style-hover="border-color:#5B1A24">
+          <img src="{{ r.src }}" alt="{{ r.alt }}" loading="lazy" style="display:block;width:100%;border-radius:8px">
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:20px">
+      <p style="font-size:13px;color:#6A6063">Relatos publicados com autorização dos pacientes. Toque em um para ampliar.</p>
+      <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="display:inline-flex;align-items:center;gap:12px;background:#121011;color:#fff;text-decoration:none;font-size:15px;font-weight:600;padding:15px 26px;border-radius:999px;transition:background .2s" style-hover="background:#5B1A24;color:#fff">Agendar minha sessão <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" data-screen-label="04 Sobre" style="background:#FAF7F7;padding:clamp(64px,9vw,120px) 24px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,7vw,96px);align-items:center">
+    <figure style="position:relative;max-width:480px;width:100%">
+      <img src="assets/luana.jpg" alt="Retrato de Luana Nunes, psicóloga clínica" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 18%;border-radius:20px">
+      <figcaption style="position:absolute;left:16px;bottom:16px;background:#121011;color:#fff;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600;letter-spacing:.02em">Luana Nunes · CRP 06/193435</figcaption>
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Quem conduz</div>
+      <h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.06;font-weight:600;letter-spacing:-.03em;font-stretch:92%;text-wrap:balance;margin-bottom:6px">Método, experiência e <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0;color:#5B1A24">clareza sobre o que está em jogo.</span></h2>
+      <p style="font-size:16.5px;color:#4A4245;max-width:60ch">Sou psicóloga clínica há mais de 6 anos e atendo com <strong style="color:#121011;font-weight:600">Terapia Cognitivo-Comportamental</strong>: uma abordagem prática, com base em evidência e orientada para mudança.</p>
+      <p style="font-size:16.5px;color:#4A4245;max-width:60ch">Eu vivi o fim de um relacionamento longo. O que mais me afetou não foi a separação em si, foi descobrir que eu não sabia mais quem eu era fora dela. Reconstruir isso foi o que me trouxe para este trabalho.</p>
+      <p style="font-size:16.5px;color:#4A4245;max-width:60ch">Hoje, ajudo você a entender o padrão por trás da dúvida ou da dor e a decidir com clareza, sem se abandonar no processo.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px;padding-top:24px;border-top:1px solid #E3DCDD">
+        <div><b style="display:block;font-size:clamp(26px,2.6vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:#5B1A24">+6 anos</b><span style="display:block;font-size:13px;color:#4A4245;line-height:1.4;margin-top:4px">de atuação clínica</span></div>
+        <div><b style="display:block;font-size:clamp(26px,2.6vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:#5B1A24">TCC</b><span style="display:block;font-size:13px;color:#4A4245;line-height:1.4;margin-top:4px">abordagem baseada em evidência</span></div>
+        <div><b style="display:block;font-size:clamp(26px,2.6vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:#5B1A24">Online</b><span style="display:block;font-size:13px;color:#4A4245;line-height:1.4;margin-top:4px">sessões pelo Google Meet</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planos" data-screen-label="05 Planos" style="padding:clamp(64px,9vw,120px) 24px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:720px;margin-bottom:48px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Planos de acompanhamento</div>
+      <h2 style="font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:600;letter-spacing:-.03em;font-stretch:92%">Três formatos, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0;color:#5B1A24">um mesmo método.</span></h2>
+      <p style="font-size:17px;color:#4A4245;text-wrap:pretty">Todos com sessões semanais de 50 minutos pelo Google Meet, plano terapêutico com objetivos definidos e exercícios práticos entre as sessões.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+      <article style="border:1px solid #E3DCDD;border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:14px;background:#fff">
+        <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:64px;font-weight:600;letter-spacing:-.05em;line-height:1;color:#5B1A24">4</span><span style="font-size:13px;font-weight:500;color:#6A6063;letter-spacing:.04em">sessões</span></div>
+        <h3 style="font-size:22px;font-weight:600;letter-spacing:-.02em">Plano Mensal</h3>
+        <p style="color:#4A4245;font-size:15.5px;flex:1">Para organizar o que você está vivendo, entender o padrão por trás disso e dar os primeiros passos com direção.</p>
+        <div style="padding-top:16px;border-top:1px solid #EEE8E8;font-size:14px;font-weight:600;color:#121011">Pagamento mensal recorrente, em data fixa combinada.</div>
+      </article>
+      <article style="border:1px solid #121011;border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:14px;background:#121011;color:#fff">
+        <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:64px;font-weight:600;letter-spacing:-.05em;line-height:1;color:#fff">8</span><span style="font-size:13px;font-weight:500;color:#C9C1C3;letter-spacing:.04em">sessões</span></div>
+        <h3 style="font-size:22px;font-weight:600;letter-spacing:-.02em">Plano Bimestral</h3>
+        <p style="color:#D9D2D4;font-size:15.5px;flex:1">Para aprofundar o trabalho com crenças e comportamentos e consolidar novas formas de se posicionar.</p>
+        <div style="padding-top:16px;border-top:1px solid rgba(255,255,255,.2);font-size:14px;font-weight:600">Pagamento integral no início do ciclo.</div>
+      </article>
+      <article style="border:1px solid #E3DCDD;border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:14px;background:#fff">
+        <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:64px;font-weight:600;letter-spacing:-.05em;line-height:1;color:#5B1A24">24</span><span style="font-size:13px;font-weight:500;color:#6A6063;letter-spacing:.04em">sessões</span></div>
+        <h3 style="font-size:22px;font-weight:600;letter-spacing:-.02em">Plano Semestral</h3>
+        <p style="color:#4A4245;font-size:15.5px;flex:1">Para atravessar uma decisão ou um recomeço com acompanhamento consistente ao longo de seis meses.</p>
+        <div style="padding-top:16px;border-top:1px solid #EEE8E8;font-size:14px;font-weight:600;color:#121011">Pagamento integral no início do ciclo.</div>
+      </article>
+    </div>
+    <p style="font-size:14px;color:#6A6063;margin-top:16px">Os valores são informados no atendimento.</p>
+
+    <div style="margin-top:72px">
+      <h3 style="font-size:clamp(24px,2.4vw,30px);font-weight:600;letter-spacing:-.025em;margin-bottom:28px">Como funciona</h3>
+      <ol style="list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px">
+        <li style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:2px solid #5B1A24">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.08em;color:#5B1A24">01</span>
+          <h4 style="font-size:19px;font-weight:600;letter-spacing:-.015em">Você agenda</h4>
+          <p style="font-size:15px;color:#4A4245">Escolha o dia e o horário na agenda desta página.</p>
+        </li>
+        <li style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:2px solid #5B1A24">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.08em;color:#5B1A24">02</span>
+          <h4 style="font-size:19px;font-weight:600;letter-spacing:-.015em">Primeira sessão</h4>
+          <p style="font-size:15px;color:#4A4245">Leitura clínica da sua queixa e dos padrões envolvidos.</p>
+        </li>
+        <li style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:2px solid #5B1A24">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.08em;color:#5B1A24">03</span>
+          <h4 style="font-size:19px;font-weight:600;letter-spacing:-.015em">Plano terapêutico</h4>
+          <p style="font-size:15px;color:#4A4245">Definimos juntos o objetivo e o plano que faz sentido para você.</p>
+        </li>
+        <li style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:2px solid #5B1A24">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.08em;color:#5B1A24">04</span>
+          <h4 style="font-size:19px;font-weight:600;letter-spacing:-.015em">Sessões e revisão</h4>
+          <p style="font-size:15px;color:#4A4245">Encontros semanais, exercícios entre as sessões e revisão ao fim de cada ciclo.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;background:#F7EEEF;border-radius:20px;padding:28px 32px;margin-top:64px">
+      <p style="max-width:64ch;font-size:15.5px;color:#121011"><b style="font-weight:600;color:#5B1A24">Ainda com dúvida se a terapia é o caminho?</b> A reunião estratégica dura 20 minutos, é sem custo e acontece pelo Google Meet, uma plataforma segura e confiável. Fica fora dos planos e não gera compromisso.</p>
+      <a href="https://wa.me/5511951508090?text=Ol%C3%A1%2C%20Luana%21%20Vim%20pelo%20site%20e%20tenho%20interesse%20em%20agendar%20a%20reuni%C3%A3o%20estrat%C3%A9gica%20de%2020%20minutos." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;border:1px solid #5B1A24;color:#5B1A24;text-decoration:none;font-size:15px;font-weight:600;padding:14px 22px;border-radius:999px;transition:all .2s" style-hover="background:#5B1A24;color:#fff">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+        Agendar reunião estratégica</a>
+    </div>
+
+    <div style="margin-top:40px;display:flex;justify-content:center">
+      <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="display:inline-flex;align-items:center;gap:12px;background:#5B1A24;color:#fff;text-decoration:none;font-size:16px;font-weight:600;padding:17px 28px;border-radius:999px;transition:background .2s" style-hover="background:#121011;color:#fff">Agendar minha sessão <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="agenda" data-screen-label="06 Agenda" style="background:#FAF7F7;padding:clamp(64px,9vw,120px) 24px;border-top:1px solid #EEE8E8">
+  <div style="max-width:880px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Agenda<span style="width:28px;height:1px;background:#5B1A24"></span></div>
+    <h2 style="font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:600;letter-spacing:-.03em;font-stretch:92%;text-wrap:balance">Escolha o dia e o horário <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0;color:#5B1A24">da sua sessão.</span></h2>
+    <p style="font-size:17px;color:#4A4245;max-width:56ch">A confirmação chega por e-mail e a sessão acontece pelo Google Meet, uma plataforma segura e confiável.</p>
+    <div style="width:100%;max-width:780px;min-height:360px;margin-top:22px;background:#fff;border:1px solid #EEE8E8;border-radius:20px;padding:20px;text-align:left">
+      <a id="zl-url" class="zl-url" href="https://www.doctoralia.com.br/luana-nunes-1594310122/psicologo/sao-paulo" rel="nofollow" data-zlw-doctor="luana-nunes-1594310122" data-zlw-type="big_with_calendar" data-zlw-opinion="false" data-zlw-hide-branding="true" data-zlw-saas-only="true" data-zlw-a11y-title="Widget de marcação de consultas médicas">Marque uma consulta</a>
+    </div>
+    <p style="font-size:14px;color:#4A4245;margin-top:8px">A agenda não carregou? <a href="https://www.doctoralia.com.br/luana-nunes-1594310122/psicologo/sao-paulo" target="_blank" rel="noopener" style="font-weight:600;text-underline-offset:3px">Abrir agenda em nova aba</a>. Prefere tirar uma dúvida antes? <a href="https://wa.me/5511951508090?text=Ol%C3%A1%2C%20Luana%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" style="font-weight:600;text-underline-offset:3px">Falar pelo WhatsApp</a>.</p>
+  </div>
+</section>
+
+<section id="duvidas" data-screen-label="07 Dúvidas" style="padding:clamp(64px,9vw,120px) 24px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,6vw,80px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:20px;position:sticky;top:112px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Dúvidas frequentes</div>
+      <h2 style="font-size:clamp(32px,3.6vw,46px);line-height:1.06;font-weight:600;letter-spacing:-.03em;font-stretch:92%;text-wrap:balance">O que você precisa saber <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0;color:#5B1A24">antes de agendar</span></h2>
+    </div>
+    <div style="grid-column:span 1;min-width:0">
+      <details open="" style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">Como são as sessões online?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">As sessões acontecem pelo Google Meet, uma plataforma segura e confiável. Peço que você esteja em um lugar seguro, confortável e privativo, para que possamos conversar sem interrupções, com fone de ouvido e uma conexão de internet estável.</p></details>
+      <details style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">O que acontece na primeira sessão?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">Uma leitura clínica do seu momento: a queixa central, a história e os padrões de pensamento e comportamento envolvidos. A partir dela, definimos juntos o objetivo do trabalho e o plano que faz mais sentido para você.</p></details>
+      <details style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">O que é a reunião estratégica de 20 minutos?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">É uma conversa breve, sem custo, para quem ainda está em dúvida se a terapia é o caminho ou qual formato escolher. Acontece pelo Google Meet, uma plataforma segura e confiável, fica fora dos planos e não gera compromisso.</p></details>
+      <details style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">Estou em dúvida se termino ou não. A terapia vai decidir por mim?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">Não. A decisão é sua. O trabalho é enxergar com clareza o que mantém você na relação, o que você quer hoje e o que cada caminho significa, para que a escolha não seja feita pelo medo ou pelo hábito.</p></details>
+      <details style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">Já fiz terapia antes e não funcionou. Por que agora seria diferente?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">A Terapia Cognitivo-Comportamental trabalha com objetivos definidos e com a identificação clara dos padrões que se repetem. Você sabe o que está sendo trabalhado e por quê, em cada etapa.</p></details>
+      <details style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">Como funciona o pagamento?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">No Plano Mensal, o pagamento é recorrente, todo mês, em uma data fixa combinada. Nos planos Bimestral e Semestral, o pagamento é feito integralmente no início do ciclo. Os valores são informados no atendimento.</p></details>
+      <details style="border-top:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">O que eu falar fica em sigilo?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">Sim. O sigilo é um dever ético da psicologia, previsto no Código de Ética Profissional do Psicólogo.</p></details>
+      <details style="border-top:1px solid #E3DCDD;border-bottom:1px solid #E3DCDD"><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:19px;font-weight:600;letter-spacing:-.015em">A terapia é para casais?<span class="plus" style="color:#5B1A24;font-size:26px;font-weight:300;line-height:1;transition:transform .2s">+</span></summary><p style="padding:0 40px 24px 0;color:#4A4245;font-size:16px">Não. O atendimento é individual. O foco é você: o que escolhe, o que tolera, como reage e como se posiciona nas suas relações.</p></details>
+      <div style="margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
+        <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;line-height:1.2">Pronto para dar o primeiro passo?</p>
+        <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="display:inline-flex;align-items:center;gap:12px;background:#121011;color:#fff;text-decoration:none;font-size:15px;font-weight:600;padding:15px 26px;border-radius:999px;transition:background .2s" style-hover="background:#5B1A24;color:#fff">Agendar minha sessão <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="instagram" data-screen-label="08 Instagram" style="background:#FAF7F7;padding:clamp(64px,9vw,112px) 24px">
+  <div style="max-width:1080px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5B1A24"><span style="width:28px;height:1px;background:#5B1A24"></span>Instagram<span style="width:28px;height:1px;background:#5B1A24"></span></div>
+    <h2 style="font-size:clamp(28px,3.4vw,44px);line-height:1.08;font-weight:600;letter-spacing:-.03em;font-stretch:92%;text-wrap:balance">Conteúdo sobre relacionamentos e identidade</h2>
+    <p style="font-size:17px;color:#4A4245;max-width:56ch">Reflexões diretas sobre relações, decisões e reconstrução. @luanagnunes.psi</p>
+    <div style="width:100%;min-height:120px;margin-top:18px">
+      <div class="elfsight-app-5010e3fe-c41d-4942-a3b9-0cedf90ae1d2" data-elfsight-app-lazy=""></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="09 Fechamento" style="background:#5B1A24;color:#fff;padding:clamp(72px,10vw,128px) 24px;text-align:center">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px">
+    <h2 style="font-size:clamp(34px,5vw,64px);line-height:1.02;font-weight:600;letter-spacing:-.035em;font-stretch:92%;text-wrap:balance">Você não precisa atravessar essa fase <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0">sem direção.</span></h2>
+    <p style="font-size:18px;color:#F4E6E8">Escolha um horário e comece pela primeira sessão.</p>
+    <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="margin-top:12px;display:inline-flex;align-items:center;gap:12px;background:#fff;color:#5B1A24;text-decoration:none;font-size:16px;font-weight:600;padding:17px 30px;border-radius:999px;transition:all .2s" style-hover="background:#121011;color:#fff">Agendar minha sessão <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+</main>
+
+<footer style="background:#121011;color:#BDB4B6;font-size:14px;padding:40px 24px {{ footerPad }}">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px">
+    <div><b style="color:#fff;font-weight:600">Luana Nunes</b> · Psicóloga clínica · CRP 06/193435<br>CNPJ 58.946.333/0001-98</div>
+    <div>Atendimento online ao redor do mundo<br>© 2026 Luana Nunes</div>
+  </div>
+</footer>
+
+<sc-if value="{{ showFloat }}" hint-placeholder-val="{{ false }}">
+  <a href="https://wa.me/5511951508090?text=Ol%C3%A1%2C%20Luana%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp" style="position:fixed;right:24px;bottom:24px;z-index:60;width:58px;height:58px;border-radius:50%;background:#121011;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(18,16,17,.28);transition:background .2s" style-hover="background:#5B1A24;color:#fff">
+    <svg viewBox="0 0 24 24" style="width:26px;height:26px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+  </a>
+</sc-if>
+
+<sc-if value="{{ showBar }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid #EEE8E8">
+    <a href="#agenda" data-target="agenda" onClick="{{ go }}" style="flex:1;display:flex;align-items:center;justify-content:center;background:#5B1A24;color:#fff;text-decoration:none;font-size:15px;font-weight:600;height:52px;border-radius:999px">Agendar minha sessão</a>
+    <a href="https://wa.me/5511951508090?text=Ol%C3%A1%2C%20Luana%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp" style="flex:0 0 52px;height:52px;border-radius:50%;background:#121011;color:#fff;display:grid;place-items:center">
+      <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+    </a>
+  </div>
+</sc-if>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLb }}" style="position:fixed;inset:0;z-index:100;background:rgba(18,16,17,.9);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out">
+    <button type="button" onClick="{{ closeLb }}" aria-label="Fechar" style="position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:#121011;font-size:24px;cursor:pointer">×</button>
+    <div style="max-width:100%;max-height:100%;overflow:auto;border-radius:12px;background:#fff">
+      <img src="{{ lbSrc }}" alt="Relato de paciente ampliado" style="display:block;width:780px;max-width:none">
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showWhatsApp&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showProgress&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { active: 'inicio', menuOpen: false, w: typeof window !== 'undefined' ? window.innerWidth : 1200, progress: 0, lb: null, agendaVisible: false };
+  trackRef = React.createRef();
+  ids = ['inicio', 'para-voce', 'depoimentos', 'sobre', 'planos', 'agenda', 'duvidas'];
+  labels = ['Início', 'Para você', 'Relatos', 'Sobre', 'Planos', 'Agenda', 'Dúvidas'];
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const y = window.scrollY;
+      let active = this.ids[0];
+      for (const id of this.ids) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 140) active = id; }
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ag = document.getElementById('agenda');
+      let agendaVisible = false;
+      if (ag) { const r = ag.getBoundingClientRect(); agendaVisible = r.top < window.innerHeight * 0.85 && r.bottom > 0; }
+      this.setState({ active, progress: max > 0 ? Math.min(1, y / max) : 0, agendaVisible });
+    };
+    this.onResize = () => this.setState({ w: window.innerWidth, menuOpen: window.innerWidth > 980 ? false : this.state.menuOpen });
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ lb: null }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('keydown', this.onKey);
+    this.onScroll();
+    const add = (id, src) => { if (document.getElementById(id)) return; const s = document.createElement('script'); s.id = id; s.src = src; s.async = true; document.body.appendChild(s); };
+    add('zl-widget-s', 'https://platform.docplanner.com/js/widget.js');
+    add('elfsight-platform', 'https://elfsightcdn.com/platform.js');
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+  }
+
+  go = (e) => {
+    const id = e.currentTarget.getAttribute('data-target');
+    const el = id && document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    const top = el.getBoundingClientRect().top + window.scrollY - (id === 'inicio' ? 72 : 71);
+    window.scrollTo({ top: id === 'inicio' ? 0 : top, behavior: 'smooth' });
+    this.setState({ menuOpen: false, active: id });
+  };
+
+  renderVals() {
+    const { active, menuOpen, w, progress, lb, agendaVisible } = this.state;
+    const desktop = w > 980;
+    const mobile = !desktop;
+    const showWhatsApp = this.props.showWhatsApp ?? true;
+    const nav = this.ids.map((id, i) => ({
+      id, label: this.labels[i],
+      color: active === id ? (desktop ? '#fff' : '#5B1A24') : '#121011',
+      bg: active === id ? '#5B1A24' : 'transparent'
+    }));
+    const relatos = Array.from({ length: 9 }, (_, i) => ({ src: `assets/relato-${i + 1}.jpg`, alt: `Relato de paciente ${i + 1}` }));
+    return {
+      desktop, mobile, nav, menuOpen,
+      menuIcon: menuOpen ? '×' : '☰',
+      toggleMenu: () => this.setState({ menuOpen: !menuOpen }),
+      go: this.go,
+      showProgress: this.props.showProgress ?? true,
+      progress: `${(progress * 100).toFixed(2)}%`,
+      heroCols: desktop ? 'minmax(0,1fr) minmax(0,1.05fr)' : 'minmax(0,1fr)',
+      heroAreas: desktop ? '"copy video" "cta video"' : '"copy" "video" "cta"',
+      trackRef: this.trackRef,
+      relatos,
+      slide: (e) => {
+        const t = this.trackRef.current; if (!t) return;
+        const card = t.firstElementChild;
+        const dir = Number(e.currentTarget.getAttribute('data-dir'));
+        t.scrollBy({ left: ((card ? card.offsetWidth : 500) + 16) * dir, behavior: 'smooth' });
+      },
+      openLb: (e) => this.setState({ lb: e.currentTarget.getAttribute('data-src') }),
+      closeLb: (e) => { if (e.target === e.currentTarget) this.setState({ lb: null }); },
+      lbOpen: !!lb, lbSrc: lb || '',
+      showFloat: desktop && showWhatsApp,
+      showBar: mobile && !agendaVisible,
+      footerPad: mobile ? '96px' : '40px'
+    };
+  }
+}
+</script>
+</body>
+</html>
